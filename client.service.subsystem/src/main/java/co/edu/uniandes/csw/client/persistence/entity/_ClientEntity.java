@@ -16,27 +16,47 @@ public abstract class _ClientEntity {
 	@GeneratedValue(generator = "Client")
 	private Long id;
 	private String name;
+        private String lastname;
 	private String cc;
+        private String birthDate;
 
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
-	
-	public void setId(Long id){
+ 
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName(){
+	public String getName() {
 		return name;
 	}
-	
-	public void setName(String name){
+ 
+	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCc(){
+        
+        public String getLastName() {
+		return lastname;
+	}
+ 
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
+	}
+        
+	public String getCc() {
 		return cc;
 	}
-	
-	public void setCc(String cc){
+ 
+	public void setCc(String cc) {
 		this.cc = cc;
+	}
+              
+        
+        public String getBirthDate() {
+		return birthDate;
+	}
+ 
+	public void setBirthDate(String birthdate) {
+		this.birthDate = birthdate;
 	}
 }

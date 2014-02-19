@@ -15,7 +15,9 @@ public abstract class _ClientConverter {
 			ClientDTO dto = new ClientDTO();
 				dto.setId(entity.getId());
 				dto.setName(entity.getName());
+                                dto.setLastName(entity.getLastName());
 				dto.setCc(entity.getCc());
+                                dto.setBirthDate(entity.getBirthDate());
 			return dto;
 		}else{
 			return null;
@@ -27,7 +29,9 @@ public abstract class _ClientConverter {
 			ClientEntity entity=new ClientEntity();
 			entity.setId(dto.getId());
 			entity.setName(dto.getName());
+                        entity.setLastName(dto.getLastName());
 			entity.setCc(dto.getCc());
+                        entity.setBirthDate(dto.getBirthDate());
 			return entity;
 		}else {
 			return null;

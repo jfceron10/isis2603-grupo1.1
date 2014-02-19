@@ -5,6 +5,11 @@ define([], function() {
 		 'name' : ''
  ,  
 		 'value' : ''
+ ,  
+		 'brand' : ''
+  ,  
+		 'buyDate' : ''                
+                
         },
         initialize: function() {
         },

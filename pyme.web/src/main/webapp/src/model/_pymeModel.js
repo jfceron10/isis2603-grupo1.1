@@ -5,6 +5,10 @@ define([], function() {
 		 'name' : ''
  ,  
 		 'description' : ''
+ ,  
+		 'address' : ''
+,  
+		 'telephone' : ''
         },
         initialize: function() {
         },

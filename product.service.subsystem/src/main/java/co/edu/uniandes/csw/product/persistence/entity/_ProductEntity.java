@@ -16,7 +16,9 @@ public abstract class _ProductEntity {
 	@GeneratedValue(generator = "Product")
 	private Long id;
 	private String name;
-	private Long value;
+	private Long valor;
+        private String brand;
+        private String buyDate;
 
 	public Long getId(){
 		return id;
@@ -33,10 +35,26 @@ public abstract class _ProductEntity {
 		this.name = name;
 	}
 	public Long getValue(){
-		return value;
+		return valor;
 	}
 	
 	public void setValue(Long value){
-		this.value = value;
+		this.valor = value;
+	}
+        
+        public String getBrand(){
+		return brand;
+	}
+	
+	public void setBrand(String brand){
+		this.brand = brand;
+	}
+        
+        public String getBuyDate(){
+		return buyDate;
+	}
+	
+	public void setBuyDate(String buyDate){
+		this.buyDate = buyDate;
 	}
 }
