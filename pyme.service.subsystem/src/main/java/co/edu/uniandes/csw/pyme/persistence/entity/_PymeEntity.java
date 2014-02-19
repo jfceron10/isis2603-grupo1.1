@@ -17,26 +17,44 @@ public abstract class _PymeEntity {
 	@GeneratedValue(generator = "Pyme")
 	private Long id;
 	private String description;
+        private String address;
+        private String telephone;
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
-	
-	public void setName(String name){
+ 
+	public void setName(String name) {
 		this.name = name;
 	}
-	public Long getId(){
+	public Long getId() {
 		return id;
 	}
-	
-	public void setId(Long id){
+ 
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getDescription(){
+	public String getDescription() {
 		return description;
 	}
-	
-	public void setDescription(String description){
+ 
+	public void setDescription(String description) {
 		this.description = description;
+	}
+        
+        public String getAddress() {
+		return address;
+	}
+ 
+	public void setAddress(String address) {
+		this.address = address;
+	}
+        
+        public String getTelephone() {
+		return telephone;
+	}
+ 
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 }

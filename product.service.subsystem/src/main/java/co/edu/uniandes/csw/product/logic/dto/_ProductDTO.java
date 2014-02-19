@@ -1,7 +1,6 @@
 
 package co.edu.uniandes.csw.product.logic.dto;
 
-import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -10,28 +9,46 @@ public abstract class _ProductDTO {
 
 	private Long id;
 	private String name;
-	private Long value;
+	private Long valor;
+        private String brand;
+        private String buyDate;
 
-	public Long getId() {
+	public Long getId(){
 		return id;
 	}
- 
-	public void setId(Long id) {
+	
+	public void setId(Long id){
 		this.id = id;
 	}
-	public String getName() {
+	public String getName(){
 		return name;
 	}
- 
-	public void setName(String name) {
+	
+	public void setName(String name){
 		this.name = name;
 	}
-	public Long getValue() {
-		return value;
+	public Long getValue(){
+		return valor;
 	}
- 
-	public void setValue(Long value) {
-		this.value = value;
+	
+	public void setValue(Long value){
+		this.valor = value;
+	}
+        
+        public String getBrand(){
+		return brand;
+	}
+	
+	public void setBrand(String brand){
+		this.brand = brand;
+	}
+        
+        public String getBuyDate(){
+		return buyDate;
+	}
+	
+	public void setBuyDate(String buyDate){
+		this.buyDate = buyDate;
 	}
 	
 }

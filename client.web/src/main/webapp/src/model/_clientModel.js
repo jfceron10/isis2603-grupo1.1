@@ -4,7 +4,11 @@ define([], function() {
  
 		 'name' : ''
  ,  
-		 'cc' : ''
+		 'lastname' : ''
+ ,
+                 'cc' : ''
+ ,
+                 'birthDate' : ''
         },
         initialize: function() {
         },
