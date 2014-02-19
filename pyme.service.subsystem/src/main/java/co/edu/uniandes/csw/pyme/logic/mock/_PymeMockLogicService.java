@@ -5,6 +5,7 @@ import java.util.List;
 
 import co.edu.uniandes.csw.pyme.logic.dto.PymeDTO;
 import co.edu.uniandes.csw.pyme.logic.api._IPymeLogicService;
+import co.edu.uniandes.csw.pyme.persistence.PymePersistence;
 
 public abstract class _PymeMockLogicService implements _IPymeLogicService {
 
@@ -53,5 +54,10 @@ public abstract class _PymeMockLogicService implements _IPymeLogicService {
 			data.remove(delete);
 			data.add(pyme);
 		} 
-	}	
+	}
+        
+        public List<PymeDTO> searchPyme(String descr) {
+            PymePersistence q = new PymePersistence();
+            return q.searchPyme(descr);
+        }
 }

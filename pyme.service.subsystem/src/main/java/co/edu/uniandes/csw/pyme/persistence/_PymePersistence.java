@@ -42,5 +42,15 @@ public abstract class _PymePersistence implements _IPymePersistence {
 		PymeEntity entity=entityManager.merge(PymeConverter.persistenceDTO2Entity(detail));
 		PymeConverter.entity2PersistenceDTO(entity);
 	}
+        
+        public List<PymeDTO> searchPyme(String descr) {
+        Query q = entityManager.createQuery("select u from PymeEntity u where u.description like '%" + descr + "%'");
+ 
+        List list = q.getResultList();
+        if (list.size() != 0) {
+            return PymeConverter.entity2PersistenceDTOList(list);
+        }
+        return null;
+    }
 
 }

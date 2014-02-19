@@ -14,7 +14,7 @@ public abstract class _PymeLogicService implements _IPymeLogicService {
 
 	public PymeDTO createPyme(PymeDTO pyme){
 		return persistance.createPyme( pyme); 
-    }
+        }
 
 	public List<PymeDTO> getPymes(){
 		return persistance.getPymes(); 
@@ -30,5 +30,9 @@ public abstract class _PymeLogicService implements _IPymeLogicService {
 
 	public void updatePyme(PymeDTO pyme){
 	    persistance.updatePyme(pyme); 
-	}	
+        }
+        
+        public List<PymeDTO> searchPyme(String s) {
+            return persistance.searchPyme(s);
+        }
 }

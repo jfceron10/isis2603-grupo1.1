@@ -12,5 +12,6 @@ public interface _IPymePersistence {
 	public PymeDTO getPyme(Long id);
 	public void deletePyme(Long id);
 	public void updatePyme(PymeDTO detail);
+        public List<PymeDTO> searchPyme(String s);
 	
 }

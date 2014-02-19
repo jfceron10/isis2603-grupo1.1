@@ -1,6 +1,7 @@
-define(['model/pymeModel'], function(pymeModel) {
+define(['model/pymeModel', 'delegate/_pymeDelegate'], function(pymeModel) {
     App.Controller._PymeController = Backbone.View.extend({
         initialize: function(options) {
+            this.searchTemplate = _.template($('#pymeSearch').html() + $('#pymeList').html());
             this.modelClass = options.modelClass;
             this.listModelClass = options.listModelClass;
             this.showEdit = true;
@@ -10,8 +11,8 @@ define(['model/pymeModel'], function(pymeModel) {
             if (!options || !options.componentId) {
                 this.componentId = _.random(0, 100) + "";
             }else{
-				this.componentId = options.componentId;
-		    }
+		this.componentId = options.componentId;
+            }
             var self = this;
             Backbone.on(this.componentId + '-' + 'pyme-create', function(params) {
                 self.create(params);
@@ -30,6 +31,13 @@ define(['model/pymeModel'], function(pymeModel) {
             });
             Backbone.on(this.componentId + '-' + 'pyme-save', function(params) {
                 self.save(params);
+            });
+            
+            Backbone.on(this.componentId + '-' + 'toolbar-search', function(params) {
+                self.search(params);
+            });
+            Backbone.on(this.componentId + '-pyme-search', function(params) {
+                self.pymeSearch(params);
             });
         },
         create: function() {
@@ -150,7 +158,42 @@ define(['model/pymeModel'], function(pymeModel) {
 				}));
                 self.$el.slideDown("fast");
             });
-        }
+        },
+        
+        search: function() {
+            this.currentPymeModel = new App.Model.PymeModel();
+            this.pymeModelList = new this.listModelClass();
+            this._renderSearch();
+        },
+        pymeSearch: function(params) {
+            var self = this;
+            var model = $('#' + this.componentId + '-pymeSearch').serializeObject();
+            this.currentPymeModel.set(model);
+            App.Delegate.PymeDelegate.search(self.currentPymeModel, function(data) {
+                self.pymeModelList = new App.Model.PymeList();
+                _.each(data, function(d) {
+                    var model = new App.Model.PymeModel(d);
+                    self.pymeModelList.models.push(model);
+                });
+                self._renderSearch(params);
+            }, function(data) {
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'pyme-search', view: self, id: '', data: data, error: {textResponse: 'Error in pyme search'}});
+            });
+        },
+ 
+        _renderSearch: function(params) {
+ 
+            var self = this;
+            this.$el.slideUp("fast", function() {
+                self.$el.html(self.searchTemplate({componentId: self.componentId,
+                    pymes: self.pymeModelList.models,
+                    pyme: self.currentPymeModel,
+                    showEdit: false,
+                    showDelete: false
+                }));
+                self.$el.slideDown("fast");
+            });
+        },
     });
     return App.Controller._PymeController;
 });
