@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.pyme.logic.dto.PymeDTO;
 import co.edu.uniandes.csw.pyme.persistence.api._IPymePersistence;
 import co.edu.uniandes.csw.pyme.persistence.converter.PymeConverter;
 import co.edu.uniandes.csw.pyme.persistence.entity.PymeEntity;
+import java.awt.BorderLayout;
 
 public abstract class _PymePersistence implements _IPymePersistence {
 
@@ -44,8 +45,12 @@ public abstract class _PymePersistence implements _IPymePersistence {
 	}
         
         public List<PymeDTO> searchPyme(String descr) {
-        Query q = entityManager.createQuery("select u from PymeEntity u where u.description like '%" + descr + "%'");
- 
+        
+        descr = descr.split("\"description\":\"")[1];
+        descr = descr.split("\"")[0];
+        System.out.println("Param: " + descr);
+        Query q = entityManager.createQuery("select u from PymeEntity u where u.name like '%" + descr + "%'");
+        
         List list = q.getResultList();
         if (list.size() != 0) {
             return PymeConverter.entity2PersistenceDTOList(list);
