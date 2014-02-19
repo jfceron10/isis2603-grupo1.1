@@ -18,6 +18,7 @@ public abstract class _ProductConverter {
 				dto.setValue(entity.getValue());
                                 dto.setBrand(entity.getBrand());
                                 dto.setBuyDate(entity.getBuyDate());
+                                dto.setPicture(entity.getPicture());
 			return dto;
 		}else{
 			return null;
@@ -32,6 +33,7 @@ public abstract class _ProductConverter {
 			entity.setValue(dto.getValue());
                         entity.setBrand(dto.getBrand());
                         entity.setBuyDate(dto.getBuyDate());
+                        entity.setPicture(entity.getPicture());
 			return entity;
 		}else {
 			return null;

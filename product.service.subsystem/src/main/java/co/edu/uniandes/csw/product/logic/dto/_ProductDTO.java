@@ -12,6 +12,7 @@ public abstract class _ProductDTO {
 	private Long valor;
         private String brand;
         private String buyDate;
+        private String picture;
 
 	public Long getId(){
 		return id;
@@ -50,5 +51,13 @@ public abstract class _ProductDTO {
 	public void setBuyDate(String buyDate){
 		this.buyDate = buyDate;
 	}
+        
+        public String getPicture(){
+		return name;
+	}
+	
+	public void setPicture(String picture){
+		this.picture = picture;
+        }
 	
 }
