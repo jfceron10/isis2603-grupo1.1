@@ -159,12 +159,12 @@ define(['model/productModel'], function(productModel) {
          picture: function(params){
             console.log('picture' + params.id);
             var self=this;
-            //App.Delegate.UserDelegate.resetPassword(params.id,function(data){
+            App.Delegate.productDelegate.picture(params.id,function(data){
                 alert('sirve hasta acá');
-           // },
-            //function(data){
-              //  Backbone.trigger(self.componentId + '-' + 'error', {event: 'user-reset-password', view: self, id: params.id, data: data, error: 'Error in password reset'});
-            //});
+            },
+            function(data){
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'product-picture', view: self, id: params.id, data: data, error: 'CRITICAL FAILURE: PLEASE RUN AWAY FROM COMPUTER'});
+            });
         }
         
     });
