@@ -159,6 +159,13 @@ define(['model/productModel'], function(productModel) {
          picture: function(params){
             console.log('picture' + params.id);
             var self=this;
+            alert('0');
+            var name = this.currentProductModel.getOwnPropertyNames();
+            alert('1');
+            alert(name);
+            alert('2');
+           
+            
             App.Delegate.productDelegate.picture(params.id,function(data){
                 alert('sirve hasta acá');
             },
