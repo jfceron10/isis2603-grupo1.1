@@ -8,7 +8,9 @@ define([], function() {
  ,  
 		 'brand' : ''
   ,  
-		 'buyDate' : ''                
+		 'buyDate' : ''
+                 ,  
+		 'picture' : ''
                 
         },
         initialize: function() {

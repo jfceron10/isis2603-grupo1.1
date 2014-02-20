@@ -24,8 +24,10 @@
     <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
 	<% } %> 
 	<% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-product-delete',{id:<%= product.id %>}); return false" >Delete</a> 
+    <a onclick="Backbone.trigger('<%= componentId %>-product-delete',{id:<%= product.id %>}); return false" >Delete</a> |
 	<% } %>    
+        
+        <a onclick="Backbone.trigger('<%= componentId %>-product-picture',{id:<%= product.id %>}); return false" >Show picture</a>
 	</td>
     </tr>
     <% }); %>
@@ -55,6 +57,11 @@
 		<div class="form-group" >
 		<label for="value">buyDate</label>
     	<input type="text" class="form-control" id="buyDate" name="buyDate" placeholder="Enter value" value="<%= product.get('buyDate') %>"/>	
+		</div>
+                
+                <div class="form-group" >
+		<label for="value">picture</label>
+    	<input type="text" class="form-control" id="picture" name="picture" placeholder="Enter url" value="<%= product.get('picture') %>"/>	
 		</div>
     </form>
     </div>

@@ -31,6 +31,10 @@ define(['model/productModel'], function(productModel) {
             Backbone.on(this.componentId + '-' + 'product-save', function(params) {
                 self.save(params);
             });
+            
+            Backbone.on(this.componentId + '-' + 'product-picture', function(params) {
+                self.picture(params);
+            });
         },
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-product-create')) {
@@ -150,7 +154,19 @@ define(['model/productModel'], function(productModel) {
 				}));
                 self.$el.slideDown("fast");
             });
+        },
+        
+         picture: function(params){
+            console.log('picture' + params.id);
+            var self=this;
+            //App.Delegate.UserDelegate.resetPassword(params.id,function(data){
+                alert('sirve hasta acá');
+           // },
+            //function(data){
+              //  Backbone.trigger(self.componentId + '-' + 'error', {event: 'user-reset-password', view: self, id: params.id, data: data, error: 'Error in password reset'});
+            //});
         }
+        
     });
     return App.Controller._ProductController;
 });
