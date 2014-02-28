@@ -10,10 +10,29 @@ define([], function() {
  ,
                  'birthDate' : ''
         },
-        initialize: function() {
-        },
         getDisplay: function(name) {
          return this.get(name);
+        },
+        initialize:function(parameters){
+            this.on('invalid',function(error){
+                Backbone.trigger('user-model-error', {error: error});
+            });
+        },
+ 
+        validate: function(attrs, options) {
+            if (this.lastName == '') {
+                return "You must set a value in Attribute";
+            }
+            if (this.name == '') {
+                return "You must set a value in Attribute";
+            }
+            if (this.cc == '') {
+                return "You must set a value in Attribute";
+            }
+            if (this.birthDate == '') {
+                return "You must set a value in Attribute";
+            }
+            
         }
     });
 
@@ -25,3 +44,4 @@ define([], function() {
     });
     return App.Model._ClientModel;
 });
+  
